@@ -79,6 +79,23 @@
 //     ["MARINA BATISTA", "marina@gol.com", "professora"],
 //     ["Antonia Maria", "ari@gol.com", "cientista"]
 // ]
+// for (let i=0;i<dados.length;i++){
+//     for (let j =0;j<dados[i].length;j++){
+//         posicao = dados[i].toLocaleString().toLowerCase().split(",")
+//     }
+//     console.log(posicao)
+// }
+
+//ou ...
+// const dadosOrganizados = []
+// for (let i = 0; i < dados.length; i++) {
+//   linha = []
+//   for (let j = 0; j < dados[i].length; j++)__
+//     linha.push(dados[i][j].toLowerCase())
+//   }
+//   dadosOrganizados.push(linha)
+// }___
+// console.log(dadosOrganizados)
 
 // for (i = 0; i < dadosLC.length; i++) {
 //     for (j = 0; j < dadosLC[i].length; j++) {
@@ -108,21 +125,45 @@
 //   [71, 72, 73, 74, 75]
 // ]
 
-// const cacaPalavras = [
-//     ["a", "w", "e", "r", "t", "y", "u", "u", "i", "r"],
-//     ["a", "w", "e", "r", "t", "y", "u", "u", "i", "r"],
-//     ["a", "w", "e", "r", "t", "y", "u", "u", "i", "r"],
-//     ["a", "w", "e", "l", "e", "f", "a", "n", "t", "e"],
-//     ["a", "w", "e", "r", "t", "y", "u", "u", "i", "r"],
-//     ["a", "w", "e", "r", "t", "y", "u", "u", "i", "r"],
-//     ["a", "w", "e", "r", "t", "y", "u", "u", "i", "r"],
-//     ["c", "a", "s", "a", "t", "y", "u", "u", "i", "r"],
-//     ["a", "w", "e", "r", "t", "y", "u", "u", "i", "r"],
-//     ["a", "w", "e", "r", "e", "d", "e", "u", "i", "r"],
-//     ["a", "w", "e", "r", "t", "y", "u", "u", "i", "r"]
-// ]
+const cacaPalavras = [
+  ["a", "w", "e", "r", "t", "y", "u", "u", "i", "r"],
+  ["a", "w", "e", "r", "t", "y", "u", "u", "i", "r"],
+  ["a", "w", "e", "r", "t", "y", "u", "u", "i", "r"],
+  ["a", "w", "e", "l", "e", "f", "a", "n", "t", "e"],
+  ["a", "w", "e", "r", "t", "y", "u", "u", "i", "r"],
+  ["a", "w", "e", "r", "t", "y", "u", "u", "i", "r"],
+  ["a", "w", "e", "r", "t", "y", "u", "u", "i", "r"],
+  ["c", "a", "s", "a", "t", "y", "u", "u", "i", "r"],
+  ["a", "w", "e", "r", "t", "y", "u", "u", "i", "r"],
+  ["a", "w", "e", "r", "e", "d", "e", "u", "i", "r"],
+  ["a", "w", "e", "r", "t", "y", "u", "u", "i", "r"]
+]
 
-// const palavras = ["elefante", "casa", "rede"]
+const palavras = ["elefante", "casa", "rede"]
+
+for (let i = 0; i < cacaPalavras.length; i++) {
+  cacaPalavras[i] = cacaPalavras[i].join("")
+  for (let j = 0; j < palavras.length; j++) {
+    if (cacaPalavras[i].indexOf(palavras[j]) > -1) {
+      console.log(
+        `A palavra ${palavras[j]} está na linha ${i +
+          1} e começa na coluna ${cacaPalavras[i].indexOf(palavras[j]) + 1}`
+      )
+    }
+  }
+}
+
+//ou
+for (let i = 0; i < cacaPalavras.length; i++) {
+  for (let j = 0; j < palavras.length; j++) {
+    if (cacaPalavras[i].join("").indexOf(palavras[j]) > -1) {
+      console.log(
+        `a palavra ${palavras[j]} começa na linha ${i +
+          1}, na coluna ${cacaPalavras[i].join("").indexOf(palavras[j]) + 1}`
+      )
+    }
+  }
+}
 
 // ache as palavras da array palavras na array cacaPalavras e diga em qual linha e em qual coluna
 // elas estao.
