@@ -13,10 +13,20 @@ const dataDeNasc = document.getElementById("dataDeNascimento")
 const checkbox = document.getElementsByName("nasceuEmSp")
 const btnMostrar = document.getElementById("listarAlunas")
 const div = document.getElementById("mostrarListadeAlunas")
+const listaAlunas = [];
+
+class Aluna {
+  constructor(nome, dataDeNasc, nasceuEmSp) {
+    this.nome = nome
+    this.dataDeNasc = dataDeNasc
+    this.nasceuEmSP = nasceuEmSp
+  }
+}
+
 
 function nasceuEmSP() {
   let isChecked
-  checkbox.forEach(function(item) {
+  checkbox.forEach(function (item) {
     if (item.checked) {
       isChecked = item.value
     }
@@ -24,11 +34,17 @@ function nasceuEmSP() {
   return isChecked
 }
 
-botaoEnviar.addEventListener("click", function(e) {
+botaoEnviar.addEventListener("click", function (e) {
   e.preventDefault()
-  //estamos recevendo aqui os dados
-  console.log(nome.value, dataDeNasc.value, nasceuEmSP())
+
+  const novaAluna = new Aluna(nome.value, dataDeNasc.value, nasceuEmSP())
+  novaAluna.id = listaAlunas.length;
+
+  listaAlunas.push(novaAluna)
+  console.log(listaAlunas, 'listaAlunas')
 })
+
+
 
 //  btnMostrar.addEventListener("click", funcao para mostrar alunas)
 
